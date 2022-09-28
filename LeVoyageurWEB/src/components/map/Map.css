@@ -1,0 +1,89 @@
+.searchBar {
+  position: absolute;
+  top: 9%;
+  left: 19%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  z-index: 3;
+}
+.searchText {
+  background-color: white;
+  border-radius: 5px;
+}
+.searchIcon {
+  margin-top: 40%;
+  color:white;
+  border-radius: 5px;
+}
+.mapDiv {
+  height: 89vh;
+  width: 95vw;
+}
+
+
+.buttonClass {
+  width: 10%;
+  height: 10%;
+  margin-left: 5px;
+}
+
+#test {
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  left: 85.5%;
+  top: 70.5%;
+  color: black;
+  opacity: 0.5;
+
+  padding-top: 35px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5em;
+
+  overflow: auto;
+  max-height: 200px;
+}
+
+.modal {
+  width: 400px;
+  height: 1000px;
+  background-color: red;
+  position: absolute;
+  right: 0px;
+  margin-left: 1520px;
+  padding: 10px;
+}
+
+#loadScriptWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#mapOverlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+#poiTypes {
+  position: absolute;
+
+  right: 3vw;
+  bottom: 2vh;
+
+  pointer-events: auto;
+}
+
+.modal {
+  bottom: 10vh;
+}

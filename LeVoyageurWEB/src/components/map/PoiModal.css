@@ -1,0 +1,66 @@
+.ModalBox{
+
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    top: 20vh;
+    right: 4vw;
+    width : 25vw;
+    height: 55vh;
+
+    border: 1px gray;
+    box-shadow:"rgba(0, 0, 0, 0.90) 0px 4px 4px";
+    border-radius: 5px;
+    z-index: 4;
+    background-color: white;
+    pointer-events: auto;
+}
+
+
+#closeIcon{
+
+    margin-left:89%;
+    margin-top: -2%;
+}
+
+.PoiInputs{
+    width: 90%;
+    height: 90%;
+}
+
+.PoiInput{
+    background-color: white;
+    width: 100%;
+    
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+.BtnBox{
+
+    display: flex;
+    
+    flex-direction: row;
+    
+}
+
+
+.deleteModal{
+
+    position: absolute;
+    top: 40vh;
+    left: 35vw;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: white;
+    width: 30vw;
+    height: 20vh;
+
+    padding: 10px;
+      
+}
+

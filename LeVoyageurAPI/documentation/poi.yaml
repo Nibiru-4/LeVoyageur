@@ -1,0 +1,272 @@
+# /api/user/:id/trip/:tripId/step/:stepId/day/:dayId/poi:
+#   get:
+
+# /api/user/:id/trip/:tripId/poi/:poiId:
+#   post:
+#   put:
+#   get:
+#   delete:
+
+/api/user/{id}/trip/{tripId}/step/{stepId}/poi:
+  post:
+    summary: create a POI
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+    parameters:
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step we search
+        type: integer
+        in: path
+        required: true
+      - name: longitude
+        description: latitude of the step, for map position
+        in: formData
+        type: float
+        required: true
+      - name: latitude
+        description: longitude of the step, for map position
+        in: formData
+        type: float
+        required: true
+      - name: title
+        description: title of the step
+        in: formData
+        type: string
+      - name: description
+        description: description of the step
+        in: formData
+        type: string
+    responses:
+      '201':
+        description: poi successfuly created
+      '404':
+        description: user, trip, or step not found
+      '500':
+        description: error server during the poi creation
+  get:
+    summary: get all the poi from a specific step
+    security:
+      - bearerAuth: []
+    tags:
+      - POI 
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step we search
+        type: integer
+        in: path
+        required: true
+    responses:
+      '200':
+      '404':
+
+/api/user/{id}/trip/{tripId}/step/{stepId}/poi/{poiId}:
+  put:
+    summary: modification of an specific poi
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step
+        type: integer
+        in: path
+        required: true
+      - name: poiId
+        description: id of the poi we search
+        type: integer
+        in: path
+        required: true
+      - name: title
+        description: new title of the poi
+        type: string
+        in: formData
+      - name: description
+        description: new description of the poi
+        type: string
+        in: formData
+      - name: latitude
+        description: new latitude for the poi
+        type: float
+        in: formData
+      - name: longitude 
+        description: new longitude for the poi
+        type: float
+        in: formData
+    responses:
+      '201':
+      '404':
+      '500':
+  get:
+    summary: get information from a specific poi
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step
+        type: integer
+        in: path
+        required: true
+      - name: poiId
+        description: id of the poi we search
+        type: integer
+        in: path
+        required: true
+    responses:
+      '200':
+      '400':
+  delete:
+    summary: delete from a specific poi
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step
+        type: integer
+        in: path
+        required: true
+      - name: poiId
+        description: id of the poi we search
+        type: integer
+        in: path
+        required: true
+    responses:
+      '201':
+      '404':
+      '500':
+
+/api/user/:id/trip/:tripId/step/:stepId/poi/:poiId/file":
+  post:
+    summary: add file at the poi
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+      - File
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step
+        type: integer
+        in: path
+        required: true
+      - name: poiId
+        description: id of the poi we search
+        type: integer
+        in: path
+        required: true
+      - name: image
+        description: image or file we want to add at the poi
+        type: file
+        in: formData
+    responses:
+      '201':
+      '404':
+      '500':
+
+/api/user/:id/trip/:tripId/step/:stepId/poi/:poiId/file/:fileId:
+  delete:
+    summary: delete file from poi
+    security:
+      - bearerAuth: []
+    tags:
+      - POI
+      - File
+    parameters: 
+      - name: id
+        description: id of the user
+        in: path
+        type: integer
+        required: true
+      - name: tripId
+        description: id of the trip
+        in: path
+        type: integer
+        required: true
+      - name: stepId
+        description: id of the step
+        type: integer
+        in: path
+        required: true
+      - name: poiId
+        description: id of the poi we search
+        type: integer
+        in: path
+        required: true
+      - name: fileId
+        description: id of the file we search to delete
+        type: integer
+        in: path
+        required: true
+    responses:
+      '201':
+        description: poi successfuly deleted
+      '404':
+        description: user, trip, step, poi, file not found
+      '500':
+        description: error server during the suppression
